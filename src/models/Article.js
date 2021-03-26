@@ -32,6 +32,10 @@ const ArticleSchema = new mongoose.Schema({
   content: {
     type: String,
     required: true,
+  },
+  previewamount: {
+    type: Number,
+    default: 0,
   }
 });
 
