@@ -22,7 +22,9 @@ module.exports = {
     return res.json(`new Article successfully created (${articles.title})`);
   },
   async update(req, res) {
-    const article = await Article.findOneAndUpdate(req.params.id, req.body, { new: true });
+    const [autor, title, urlgithub, content, previewamount, urlyoutube, thumbnail, tipo] = req.body
+
+    const article = await Article.findOneAndUpdate(req.params.id, { $inc: { previewamount: 1 } }, { new: true });
     return res.json(article)
   },
   async destroy(req, res) {
