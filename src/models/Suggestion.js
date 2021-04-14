@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const mongoosePaginate = require('mongoose-paginate');
+
 const SuggestionSchema = new mongoose.Schema({
   suggestion: {
     type: String,
@@ -11,8 +13,7 @@ const SuggestionSchema = new mongoose.Schema({
   datapost: {
     type: Date,
     default: Date.now,
-  },
-
+  }
 })
-
+SuggestionSchema.plugin(mongoosePaginate)
 mongoose.model('Suggestion', SuggestionSchema);
