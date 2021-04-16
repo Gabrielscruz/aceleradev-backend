@@ -14,8 +14,7 @@ module.exports = {
   },
   async Article(req, res) {
     const articles = await Article.findById(req.params.id);
-    await Article.findOneAndUpdate(req.params.id, { "previewamount": articles.previewamount + 1 }, { new: true });
-
+    //await Article.findOneAndUpdate(req.params.id, { "previewamount": articles.previewamount + 1 }, { new: true });
     return res.json(articles)
   },
   async createArticle(req, res) {
